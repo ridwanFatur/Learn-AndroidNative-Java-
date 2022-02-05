@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startService() {
+        
         Log.d(TAG, "startService called");
         if (!MyService.isServiceRunning) {
             Intent serviceIntent = new Intent(this, MyService.class);
