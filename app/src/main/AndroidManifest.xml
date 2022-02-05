@@ -3,6 +3,11 @@
     package="com.ridwanproduction.learnandroidjava">
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-sdk android:minSdkVersion="3" />
+    <uses-permission
+        android:name="android.permission.INTERNET" />
+    <uses-permission
+        android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:allowBackup="true"
@@ -20,6 +25,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service
+            android:name=".TweetCollectorService"
+            android:exported="false"
+            android:enabled="true">
+<!--            android:process=":remote">-->
+<!--            <intent-filter>-->
+<!--                <action-->
+<!--                    android:name="com.ridwanproduction.learnandroidjava.TweetCollectorService" />-->
+<!--            </intent-filter>-->
+        </service>
+
+        <receiver
+            android:name=".BootReceiver"
+            android:exported="false"
+            >
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.BOOT_COMPLETED">
+                </action>
+            </intent-filter>
+        </receiver>
 
     </application>
 
